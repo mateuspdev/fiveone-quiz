@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import logo from "./assets/logo.png";
 import { getRandomComparisonPair, categoryMetadata } from "./data/questions";
-import { QuizCategory, CategoryScore, Statement } from "./types/quiz";
+import { CategoryEnum, Statement } from "./types/quiz";
 import StatementButton from "./components/StatementButton";
 
 const TOTAL_QUESTIONS = 50; // Number of comparisons to show
@@ -10,13 +10,13 @@ const TOTAL_QUESTIONS = 50; // Number of comparisons to show
 function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [categoryScores, setCategoryScores] = useState<
-    Record<QuizCategory, number>
+    Record<CategoryEnum, number>
   >({
-    [QuizCategory.APOSTOLO]: 0,
-    [QuizCategory.PROFETA]: 0,
-    [QuizCategory.EVANGELISTA]: 0,
-    [QuizCategory.PASTOR]: 0,
-    [QuizCategory.MESTRE]: 0,
+    [CategoryEnum.APOSTOLO]: 0,
+    [CategoryEnum.PROFETA]: 0,
+    [CategoryEnum.EVANGELISTA]: 0,
+    [CategoryEnum.PASTOR]: 0,
+    [CategoryEnum.MESTRE]: 0,
   });
   const [showResults, setShowResults] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
@@ -47,7 +47,7 @@ function App() {
     }
   }, [quizStarted, currentPair, usedStatements]);
 
-  const onHandleChoice = (chosenCategory: QuizCategory) => {
+  const onHandleChoice = (chosenCategory: CategoryEnum) => {
     // Update scores
     setCategoryScores((prevScores) => ({
       ...prevScores,
@@ -82,9 +82,9 @@ function App() {
     setCurrentPair(null);
     setUsedStatements(new Set());
     setCategoryScores(
-      Object.values(QuizCategory).reduce(
+      Object.values(CategoryEnum).reduce(
         (acc, category) => ({ ...acc, [category]: 0 }),
-        {} as Record<QuizCategory, number>
+        {} as Record<CategoryEnum, number>
       )
     );
   };
@@ -116,9 +116,9 @@ function App() {
 
   if (showResults) {
     // Calculate scores once instead of in the render
-    const sortedScores: CategoryScore[] = Object.entries(categoryScores)
+    const sortedScores = Object.entries(categoryScores)
       .map(([category, score]) => ({
-        category: category as QuizCategory,
+        categoryEnum: category as CategoryEnum,
         score: (score / TOTAL_QUESTIONS) * 100,
         metadata: categoryMetadata.find((c) => c.id === category)!,
       }))
@@ -129,7 +129,7 @@ function App() {
         <img src={logo} alt="Quiz Logo" className="logo" />
         <h2>Resultados</h2>
         <div className="results">
-          {sortedScores.map(({ category, score, metadata }) => (
+          {sortedScores.map(({ categoryEnum: category, score, metadata }) => (
             <div key={category} className="result-item">
               <h3>{metadata.name}</h3>
               <p>{score.toFixed(0)}% de aptidão</p>

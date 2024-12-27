@@ -1,10 +1,10 @@
 import React from "react";
-import { QuizCategory } from "../types/quiz";
+import { CategoryEnum } from "../types/quiz";
 import { Statement } from "../types/quiz";
 
 interface StatementButtonProps {
   statement: Statement;
-  onHandleChoice: (category: QuizCategory) => void;
+  onHandleChoice: (category: CategoryEnum) => void;
 }
 
 const StatementButton: React.FC<StatementButtonProps> = ({

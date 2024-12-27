@@ -1,4 +1,4 @@
-export enum QuizCategory {
+export enum CategoryEnum {
   APOSTOLO = "apostolo",
   PROFETA = "profeta",
   EVANGELISTA = "evangelista",
@@ -6,12 +6,9 @@ export enum QuizCategory {
   MESTRE = "mestre",
 }
 
-interface WithCategory {
-  category: QuizCategory;
-}
-
-export interface Statement extends WithCategory {
+export interface Statement {
   id: number;
+  category: CategoryEnum;
   text: string;
 }
 
@@ -21,13 +18,13 @@ export interface ComparisonQuestion {
   statement2: Statement;
 }
 
-export interface CategoryMetadata extends WithCategory {
-  id: QuizCategory;
+export interface CategoryMetadata {
+  id: CategoryEnum;
   name: string;
   description: string;
 }
 
-export interface CategoryScore extends WithCategory {
+export interface CategoryScore {
+  categoryEnum: CategoryEnum;
   score: number;
-  metadata: CategoryMetadata;
 }
