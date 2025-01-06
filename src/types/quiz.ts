@@ -21,6 +21,7 @@ export interface ComparisonQuestion {
 export interface CategoryMetadata {
   id: CategoryEnum;
   name: string;
+  icon: string;
   description: string;
 }
 

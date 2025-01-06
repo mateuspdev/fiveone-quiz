@@ -4,30 +4,35 @@ export const categoryMetadata: CategoryMetadata[] = [
   {
     id: CategoryEnum.APOSTOLO,
     name: "Apóstolo",
+    icon: "/assets/icons/praying.png",
     description:
       "O dom de Apóstolo está ligado à paixão por compartilhar o evangelho e trazer as pessoas para Cristo. Apóstolos têm um forte desejo de ver vidas transformadas pela salvação e são movidos por um profundo amor pelas almas. Eles frequentemente têm facilidade em comunicar a mensagem do evangelho de forma clara e convincente.",
   },
   {
     id: CategoryEnum.PROFETA,
     name: "Profeta",
+    icon: "assets/icons/priest.png",
     description:
       "O dom de Profeta está ligado a uma sensibilidade espiritual aguçada, à capacidade de discernir a vontade de Deus e comunicar Sua mensagem às pessoas. Os profetas são conhecidos por sua intimidade com Deus, coragem para falar a verdade, e o desejo de ver a justiça divina sendo estabelecida.",
   },
   {
     id: CategoryEnum.EVANGELISTA,
     name: "Evangelista",
+    icon: "assets/icons/pulpit.png",
     description:
       "O dom de Evangelista está ligado à paixão por compartilhar o evangelho e trazer as pessoas para Cristo. Evangelistas têm um forte desejo de ver vidas transformadas pela salvação e são movidos por um profundo amor pelas almas. Eles frequentemente têm facilidade em comunicar a mensagem do evangelho de forma clara e convincente.",
   },
   {
     id: CategoryEnum.PASTOR,
     name: "Pastor",
+    icon: "assets/icons/shepherd.png",
     description:
       "O dom pastoral envolve cuidar, guiar e nutrir espiritualmente o rebanho de Deus. Um pastor tem um coração de compaixão pelas pessoas, preocupa-se com seu bem-estar espiritual e emocional, e se dedica a discipular e ajudar os outros a crescerem em Cristo.",
   },
   {
     id: CategoryEnum.MESTRE,
     name: "Mestre",
+    icon: "assets/icons/bible.png",
     description:
       "O dom de Mestre envolve a habilidade de ensinar e comunicar de forma clara as verdades bíblicas. Mestres têm paixão por estudar a Palavra de Deus, explicar conceitos complexos e ajudar os outros a crescerem em seu entendimento e aplicação das Escrituras.",
   },

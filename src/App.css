@@ -39,40 +39,89 @@
 }
 
 .results {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  width: 100%;
   margin: 20px 0;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   background-color: white;
 }
 
 .result-item {
-  margin-bottom: 20px;
-  padding: 15px;
-  border-bottom: 1px solid #eee;
+  flex: 1 1 120px;
+  min-width: 120px;
+  padding: 20px;
+  margin: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
 }
 
-.result-item:last-child {
-  border-bottom: none;
+.category-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  filter: brightness(0) invert(1); /* Makes the icon white */
+}
+
+.result-item.pastor {
+  background-color: #005f73;
+}
+
+.result-item.apostolo {
+  background-color: #ca6702;
+}
+
+.result-item.mestre {
+  background-color: #ee9b00;
+}
+
+.result-item.profeta {
+  background-color: #bb3e03;
+}
+
+.result-item.evangelista {
+  background-color: #9b2226;
 }
 
 .result-item h3 {
-  margin: 0 0 10px 0;
-  color: #333;
+  margin: 0;
+  font-size: 1.2em;
+  color: inherit;
 }
 
 .result-item p {
-  margin: 5px 0;
-  font-size: 1.2em;
+  margin: 10px 0;
+  font-size: 1.8em;
   font-weight: bold;
-  color: #666;
+  color: inherit;
 }
 
-.result-item small {
-  display: block;
-  margin-top: 10px;
-  color: #777;
-  line-height: 1.4;
+.result-name {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.results-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.results-header h2 {
+  font-size: 2.5em;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.results-header p {
+  color: whitesmoke;
+  font-size: 1.1em;
+  line-height: 1.5;
 }
 
 .logo {
@@ -102,4 +151,62 @@
   border-radius: 4px;
   font-size: 0.9em;
   color: #666;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-icon {
+  cursor: help;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.info-icon:hover {
+  opacity: 1;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  line-height: 1.4;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  pointer-events: none;
+}
+
+.info-icon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease, visibility 0s linear 0s;
+  pointer-events: auto;
+}
+
+/* Add arrow to tooltip */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
 }
